@@ -24,7 +24,10 @@ def get_estimated_price(location, sqft, bhk, bath):
     x[2] = bhk
     if loc_index >= 0:
         x[loc_index] = 1
-
+#  # Convert to DataFrame with proper column names
+#     import pandas as pd
+#     x_df = pd.DataFrame([x], columns=__data_columns)
+#     return round(__model.predict(x_df)[0], 2)     # this will remove the warning messages that shows in related with linear regression(when running this file)
     return round(__model.predict([x])[0], 2)
 
 
@@ -79,10 +82,10 @@ def get_data_columns():
 if __name__ == '__main__':
     load_saved_artifacts()
     print("Available locations:", get_location_names())
-    # print("Price estimate 1:", get_estimated_price('1st Phase JP Nagar', 1000, 3, 3))
-    # print("Price estimate 2:", get_estimated_price('1st Phase JP Nagar', 1000, 2, 2))
-    # print("Price estimate 3:", get_estimated_price('Kalhalli', 1000, 2, 2))
-    # print("Price estimate 4:", get_estimated_price('Ejipura', 1000, 2, 2))
+    print("Price estimate 1:--------(1)---------> ", get_estimated_price('1st Phase JP Nagar', 1000, 3, 3))
+    print("Price estimate 2:--------(2)------->", get_estimated_price('1st Phase JP Nagar', 1000, 2, 2))
+    print("Price estimate 3:--------(3)------->", get_estimated_price('Kalhalli', 1000, 2, 2))
+    print("Price estimate 4:--------(4)------->", get_estimated_price('Ejipura', 1000, 2, 2))
 
 
 
